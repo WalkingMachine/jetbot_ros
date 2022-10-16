@@ -48,13 +48,13 @@ class MotorControllerWaveshare(MotorController):
         ina, inb = self.pwm_channels[motor]
         
         if value > 0:
-            self.motors[motor].run(Adafruit_MotorHAT.FORWARD)
-            self.driver._pwm.setPWM(ina, 0, pwm * 16)
-            self.driver._pwm.setPWM(inb, 0, 0)
-        elif value < 0:
             self.motors[motor].run(Adafruit_MotorHAT.BACKWARD)
             self.driver._pwm.setPWM(ina, 0, 0)
             self.driver._pwm.setPWM(inb, 0, pwm * 16)
+        elif value < 0:
+            self.motors[motor].run(Adafruit_MotorHAT.FORWARD)
+            self.driver._pwm.setPWM(ina, 0, pwm * 16)
+            self.driver._pwm.setPWM(inb, 0, 0)
         else:
             self.motors[motor].run(Adafruit_MotorHAT.RELEASE)
             self.driver._pwm.setPWM(ina, 0, 0)
