@@ -27,7 +27,7 @@
 #     https://github.com/dusty-nv/jetson-containers#docker-default-runtime
 #
 
-ARG BASE_IMAGE=dustynv/ros:foxy-pytorch-l4t-r32.5.0
+ARG BASE_IMAGE=dustynv/ros:foxy-pytorch-l4t-r35.1.0
 FROM ${BASE_IMAGE}
 
 SHELL ["/bin/bash", "-c"] 
@@ -57,6 +57,10 @@ RUN apt-get update && \
 		  gazebo9-plugin-base \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
+
+RUN apt apt install python3.7 -y
+
+RUN alias python3='/usr/local/bin/python3.7'
 
 RUN git clone https://github.com/dusty-nv/py3gazebo /opt/py3gazebo && \
     pip3 install protobuf>=2.6 --verbose && \
