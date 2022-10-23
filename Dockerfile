@@ -45,18 +45,18 @@ WORKDIR /tmp
 #
 # install gazebo & utilities
 #
-#RUN apt-get update && \
-#    apt-get install -y --no-install-recommends \
-#		  nano \
-#		  xterm \
-#		  lxterminal \
-#		  blender \
-#		  libgazebo9-dev \
-#		  gazebo9 \
-#		  gazebo9-common \
-#		  gazebo9-plugin-base \
-#    && rm -rf /var/lib/apt/lists/* \
-#    && apt-get clean
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+		  nano \
+		  xterm \
+		  lxterminal \
+		  blender \
+		  libgazebo9-dev \
+		  gazebo9 \
+		  gazebo9-common \
+		  gazebo9-plugin-base \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
 
 #RUN git clone https://github.com/dusty-nv/py3gazebo /opt/py3gazebo && \
 #    pip3 install protobuf==2.6 --verbose && \
