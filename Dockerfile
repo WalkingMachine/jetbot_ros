@@ -50,11 +50,11 @@ RUN apt-get update && \
 		  nano \
 		  xterm \
 		  lxterminal \
-		  blender \
-		  libgazebo9-dev \
-		  gazebo9 \
-		  gazebo9-common \
-		  gazebo9-plugin-base \
+		  #blender \
+		  #ibgazebo9-dev \
+		  #gazebo9 \
+		  #gazebo9-common \
+		  #gazebo9-plugin-base \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
@@ -120,11 +120,11 @@ ENV PYTHONPATH="${JETBOT_ROOT}:${PYTHONPATH}"
 #
 # ros_deep_learning package
 #
-RUN source ${ROS_ENVIRONMENT} && \
-    cd ${WORKSPACE_ROOT}/src && \
-    git clone https://github.com/dusty-nv/ros_deep_learning && \
-    cd ../ && \
-    colcon build --symlink-install --event-handlers console_direct+
+#RUN source ${ROS_ENVIRONMENT} && \
+#    cd ${WORKSPACE_ROOT}/src && \
+#    git clone https://github.com/dusty-nv/ros_deep_learning && \
+#    cd ../ && \
+#    colcon build --symlink-install --event-handlers console_direct+
 
 
 #
